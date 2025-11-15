@@ -1,3 +1,4 @@
+from typing import Optional
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest, HttpResponse
 from django.views.decorators.http import require_POST
@@ -56,7 +57,7 @@ def home(request: HttpRequest) -> HttpResponse:
     )
 
 
-def catalog(request: HttpRequest, category_slug: str | None = None) -> HttpResponse:
+def catalog(request: HttpRequest, category_slug: Optional[str] = None) -> HttpResponse:
     category = None
     products = Product.objects.all().select_related("subcategory", "subcategory__category")
     if category_slug:
