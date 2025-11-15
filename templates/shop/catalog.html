@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Catalog - Kanak Jewellery{% endblock %}
+{% block content %}
+<h2>{% if category %}{{ category.name }}{% else %}All Jewellery{% endif %}</h2>
+<div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+  {% for product in products %}
+    <article>
+      <a href="{% url 'product_detail' product.slug %}">
+        {% if product.image %}
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+        {% endif %}
+        <h3>{{ product.name }}</h3>
+      </a>
+      <p>₹ {{ product.price }}</p>
+      <form method="post" action="{% url 'add_to_cart' product.id %}">
+        {% csrf_token %}
+        <button type="submit">Add to Cart</button>
+      </form>
+    </article>
+  {% empty %}
+    <p>No products found.</p>
+  {% endfor %}
+</div>
+{% endblock %}
+
+

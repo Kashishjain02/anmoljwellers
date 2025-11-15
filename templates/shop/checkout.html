@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Checkout - Kanak Jewellery{% endblock %}
+{% block content %}
+<h2>Checkout</h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="grid">
+    <label>First name
+      <input type="text" name="first_name" required />
+    </label>
+    <label>Last name
+      <input type="text" name="last_name" required />
+    </label>
+  </div>
+  <label>Email
+    <input type="email" name="email" required />
+  </label>
+  <label>Address
+    <input type="text" name="address" required />
+  </label>
+  <div class="grid">
+    <label>City
+      <input type="text" name="city" required />
+    </label>
+    <label>Postal Code
+      <input type="text" name="postal_code" required />
+    </label>
+  </div>
+  <button type="submit">Place Order</button>
+  <a role="button" class="secondary" href="/cart/">Back to Cart</a>
+  <p><strong>Order total:</strong> ₹ {{ cart.subtotal }}</p>
+  <p><em>Payment is mocked as paid for demo.</em></p>
+{% endblock %}
+
+

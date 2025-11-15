@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Kanak Jewellery{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li>
+                <a href="/" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="/static/logo.png" alt="Kanak Jewellery Logo" style="height:2rem; width:auto; display:inline-block; vertical-align:middle;">
+                    <!-- <strong>Kanak Jewellery</strong> -->
+                </a>
+            </li>
+        </ul>
+        <ul class="nav-right">
+            <li><a href="/catalog/">Shop</a></li>
+            <li><a href="/cart/">Cart</a></li>
+            <li><a href="/admin/">Admin</a></li>
+        </ul>
+    </nav>
+    <div class="container" style="margin-bottom: .5rem;">
+        <form action="/search/" method="get">
+            <input type="search" name="q" placeholder="Search jewellery, diamonds, gemstones" value="{{ request.GET.q }}" />
+        </form>
+    </div>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="container">
+        <small>&copy; {{ now|default:2025 }} Kanak Jewellery</small>
+    </footer>
+</body>
+</html>
+
+

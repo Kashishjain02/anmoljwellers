@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}Jewellery & Gems - Kanak Jewellery{% endblock %}
+{% block content %}
+
+<section class="hero has-bg" style="background-image: url('/static/festive-edit-desktop.webp'); background-size: cover; background-position: center; height: 500px;">
+  <!-- <div class="hero-content" style=" padding: 2rem; border-radius: 1rem;">
+    <h1>Timeless Jewellery for Every Occasion</h1>
+    <p>Explore gold, diamonds and precious gems crafted to perfection.</p>
+    <div class="hero-ctas">
+      <a role="button" href="/catalog/" class="primary">Shop Now</a>
+      <a role="button" href="{% url 'category' 'gold' %}" class="contrast">Gold</a>
+      <a role="button" href="{% url 'category' 'diamond' %}" class="contrast">Diamond</a>
+      <a role="button" href="{% url 'category' 'gemstone' %}" class="contrast">Gemstone</a>
+    </div>
+  </div> -->
+</section>
+
+<section class="collections">
+  <h2>Curated Collections</h2>
+  <div class="collection-grid">
+    {% for col in collections %}
+      <a class="collection-card" href="/catalog/">
+        <div class="collection-image collection-{{ col.slug }}"></div>
+        <div class="collection-body">
+          <h3>{{ col.title }}</h3>
+          <span class="badge">{{ col.cta }}</span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  
+</section>
+
+<section>
+  <div class="section-head">
+    <h2>New Arrivals</h2>
+    <a href="/catalog/">View all</a>
+  </div>
+  <div class="product-grid">
+    {% for product in new_arrivals %}
+      <article class="product-card">
+        <a href="{% url 'product_detail' product.slug %}">
+          <div class="product-thumb">
+            {% if product.image %}
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+            {% endif %}
+          </div>
+          <h3>{{ product.name }}</h3>
+        </a>
+        <p class="price">₹ {{ product.price }}</p>
+        <form method="post" action="{% url 'add_to_cart' product.id %}">
+          {% csrf_token %}
+          <button type="submit">Add to Cart</button>
+        </form>
+      </article>
+    {% empty %}
+      <p>No products yet.</p>
+    {% endfor %}
+  </div>
+</section>
+
+{% for sec in sections %}
+<section class="categories">
+  <h2>{{ sec.title }}</h2>
+  <div class="category-grid">
+    {% for c in sec.categories %}
+      <a class="category-card" href="{% url 'category' c.slug %}">
+        {% if c.image %}
+          <img src="{{ c.image.url }}" alt="{{ c.name }}" />
+        {% endif %}
+        <div class="category-body">
+          <h3>{{ c.name }}</h3>
+          <span class="badge">Explore</span>
+        </div>
+      </a>
+    {% empty %}
+      <p>No categories yet.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<section>
+  <div class="section-head">
+    <h2>Best Sellers</h2>
+    <a href="/catalog/">View all</a>
+  </div>
+  <div class="product-grid">
+    {% for product in best_sellers %}
+      <article class="product-card">
+        <a href="{% url 'product_detail' product.slug %}">
+          <div class="product-thumb">
+            {% if product.image %}
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+            {% endif %}
+          </div>
+          <h3>{{ product.name }}</h3>
+        </a>
+        <p class="price">₹ {{ product.price }}</p>
+        <form method="post" action="{% url 'add_to_cart' product.id %}">
+          {% csrf_token %}
+          <button type="submit">Add to Cart</button>
+        </form>
+      </article>
+    {% empty %}
+      <p>No products yet.</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="assurance" style="margin: 2.5rem 0;">
+  <div class="assurance-grid" style="display: flex; gap: 2rem; justify-content: center; align-items: stretch;">
+    <div class="assurance-card" style="flex:1; background: #fff; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2rem 1.5rem; text-align: center; transition: box-shadow 0.2s;">
+      <div style="font-size:2.2rem; margin-bottom: 0.5rem;">&#128142;</div>
+      <h3 style="margin-bottom: 0.5rem;">Certified Quality</h3>
+      <p style="color: #666;">All diamonds and gemstones come with certification.</p>
+    </div>
+    <div class="assurance-card" style="flex:1; background: #fff; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2rem 1.5rem; text-align: center; transition: box-shadow 0.2s;">
+      <div style="font-size:2.2rem; margin-bottom: 0.5rem;">&#128230;</div>
+      <h3 style="margin-bottom: 0.5rem;">Free Shipping</h3>
+      <p style="color: #666;">Complimentary shipping and returns on all orders.</p>
+    </div>
+    <div class="assurance-card" style="flex:1; background: #fff; border-radius: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2rem 1.5rem; text-align: center; transition: box-shadow 0.2s;">
+      <div style="font-size:2.2rem; margin-bottom: 0.5rem;">&#128717;&#65039;</div>
+      <h3 style="margin-bottom: 0.5rem;">Store Pickup</h3>
+      <p style="color: #666;">Buy online, pickup at a store near you.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+
