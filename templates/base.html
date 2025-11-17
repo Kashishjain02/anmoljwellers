@@ -23,9 +23,9 @@
             <li><a href="/admin/">Admin</a></li>
         </ul>
     </nav>
-    <div class="container" style="margin-bottom: .5rem;">
-        <form action="/search/" method="get">
-            <input type="search" name="q" placeholder="Search jewellery, diamonds, gemstones" value="{{ request.GET.q }}" />
+    <div class="container search-container">
+        <form action="/search/" method="get" class="search-form">
+            <input type="search" name="q" placeholder="Search jewellery, diamonds, gemstones" value="{{ request.GET.q }}" class="search-input" />
         </form>
     </div>
     <main class="container">
