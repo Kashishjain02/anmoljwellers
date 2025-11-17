@@ -106,24 +106,78 @@
   </div>
 </section>
 
-<section class="assurance">
-  <div class="assurance-grid">
-    <div class="assurance-card">
-      <div>&#128142;</div>
-      <h3>Certified Quality</h3>
-      <p>All diamonds and gemstones come with certification.</p>
+<section class="assurance" style="padding: 2.5rem 1rem; background: linear-gradient(135deg, #fff, #f8f9fa); margin-top: 2.5rem;">
+  <div class="assurance-grid" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 950px;
+    margin: 0 auto;
+    align-items: stretch;
+  ">
+    <div class="assurance-card" style="
+      background: #fff;
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 8px 0 rgba(0,0,0,0.06);
+      text-align: center;
+      padding: 2rem 1.5rem 1.6rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.22s;
+    ">
+      <div style="font-size: 2.3rem; margin-bottom: 1rem; color: #e0b400; background:#f8f7ef;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;box-shadow:0 0 0.5rem #f3edc5;">
+        &#128142;
+      </div>
+      <h3 style="font-size: 1.125rem; margin-bottom: 0.6rem; letter-spacing: 0.01em; font-weight: 600;">Certified Quality</h3>
+      <p style="color: #666; font-size:0.97rem; margin:0;">All diamonds and gemstones come with certification.</p>
     </div>
-    <div class="assurance-card">
-      <div>&#128230;</div>
-      <h3>Free Shipping</h3>
-      <p>Complimentary shipping and returns on all orders.</p>
+    <div class="assurance-card" style="
+      background: #fff;
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 8px 0 rgba(0,0,0,0.06);
+      text-align: center;
+      padding: 2rem 1.5rem 1.6rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.22s;
+    ">
+      <div style="font-size: 2.3rem; margin-bottom: 1rem; color: #279015; background:#edfde9;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;box-shadow:0 0 0.5rem #c6f2ce;">
+        &#128230;
+      </div>
+      <h3 style="font-size: 1.125rem; margin-bottom: 0.6rem; letter-spacing: 0.01em; font-weight: 600;">Free Shipping</h3>
+      <p style="color: #666; font-size:0.97rem; margin:0;">Complimentary shipping and returns on all orders.</p>
     </div>
-    <div class="assurance-card">
-      <div>&#128717;&#65039;</div>
-      <h3>Store Pickup</h3>
-      <p>Buy online, pickup at a store near you.</p>
+    <div class="assurance-card" style="
+      background: #fff;
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 8px 0 rgba(0,0,0,0.06);
+      text-align: center;
+      padding: 2rem 1.5rem 1.6rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.22s;
+    ">
+      <div style="font-size: 2.3rem; margin-bottom: 1rem; color: #1567b1; background:#eef4fd;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;box-shadow:0 0 0.5rem #bbdafa;">
+        &#128717;&#65039;
+      </div>
+      <h3 style="font-size: 1.125rem; margin-bottom: 0.6rem; letter-spacing: 0.01em; font-weight: 600;">Store Pickup</h3>
+      <p style="color: #666; font-size:0.97rem; margin:0;">Buy online, pickup at a store near you.</p>
     </div>
   </div>
+  <style>
+    @media (max-width: 700px) {
+      .assurance-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      .assurance-card {
+        padding: 1.5rem 1rem 1.1rem 1rem !important;
+      }
+    }
+  </style>
 </section>
 
 {% endblock %}
