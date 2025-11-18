@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# CSRF Trusted Origins - Required for HTTPS sites
+CSRF_TRUSTED_ORIGINS = [
+    'https://theanmoljewellers.com',
+    'https://www.theanmoljewellers.com',
+]
+
 
 # Application definition
 
