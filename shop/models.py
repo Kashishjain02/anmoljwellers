@@ -80,6 +80,8 @@ class Product(TimeStampedModel):
     @property
     def category(self):
         """Get the parent category through the subcategory"""
+        if not self.subcategory:
+            return None
         return self.subcategory.category
 
 
