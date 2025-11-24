@@ -58,6 +58,61 @@ table td, table th { vertical-align: middle; }
   width: 100%;
 }
 
+.site-footer {
+  background-color: #050506;
+  color: #f5f5f5;
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.site-footer h3,
+.site-footer h4 {
+  margin-bottom: 0.75rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: flex-start;
+}
+
+.footer-brand p {
+  max-width: 320px;
+}
+
+.footer-contact address {
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.site-footer a {
+  color: #f6c343;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
 .hero {
   position: relative;
   background: linear-gradient(120deg, #1b1b1b 0%, #343232 100%);
