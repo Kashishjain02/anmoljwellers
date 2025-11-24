@@ -1,8 +1,10 @@
 from typing import Optional
+from urllib.parse import quote_plus
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpRequest, HttpResponse
 from django.views.decorators.http import require_POST
 from django.db.models import Q
+from django.urls import reverse
 from .models import Category, Product, Cart, CartItem, Order, OrderItem, HomepageSection
 
 
@@ -84,7 +86,13 @@ def add_to_cart(request: HttpRequest, product_id: int) -> HttpResponse:
     if not created:
         item.quantity += 1
         item.save()
-    return redirect("cart")
+    product_link = request.build_absolute_uri(reverse("product_detail", args=[product.slug]))
+    message = (
+        f"Hello! I'm interested in the {product.name} (ID: {product.id}). "
+        f"Here is the product link: {product_link}"
+    )
+    whatsapp_url = f"https://wa.me/918226066667?text={quote_plus(message)}"
+    return redirect(whatsapp_url)
 
 
 def cart_view(request: HttpRequest) -> HttpResponse:
