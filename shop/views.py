@@ -86,6 +86,8 @@ def add_to_cart(request: HttpRequest, product_id: int) -> HttpResponse:
     if not created:
         item.quantity += 1
         item.save()
+
+    # return redirect("cart")
     product_link = request.build_absolute_uri(reverse("product_detail", args=[product.slug]))
     message = (
         f"Hello! I'm interested in the {product.name} (ID: {product.id}). "
